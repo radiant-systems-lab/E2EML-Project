@@ -1,95 +1,121 @@
-# Projects
+Project Description
 
-You have the choice of 4 projects.
+# Overview
 
-Navigate to the directory of the chosen project.
+In this project you will implement, evaluate, operate, monitor, and optimize an end-to-end ML pipeline. The details of four kinds of pipelines: datasets, model choices, metrics are provided to you. The specific pipeline that you wish to implement is your choice. 
 
-For ease of development, all the projects have docker files
-that you can use to build and run a fully functioning container.
-Each directory has a ReadMe which explains in further detail how each
-project should be tackled.
+The focus of the project is to implement the pipeline choices, evaluate which configuration of the pipeline is best and under what data distributions, operationalize the pipelines on the cloud, monitor their real-time behavior, and optimize the choice of a pipeline configuration. 
 
-For a kick start, we have provided
-you with some sample models for each project. The dockerfiles already
-have the necessary dependencies to run each of the sample models. It
-is hihgly encouraged to add more models to further develop the pipeline,
-but one should keep in mind to take care to add any necessary dependenices
-to the dockerfile.
+The project entails many concerns, including deployment, scaling, reliability, drift and feedback loops. It also has three milestones including a final project presentation. 
 
-The datasets for each usecase are mentioned in the readme for each project
-and if there are extra instructions on how to use them, they are mentioned
-in the readme of each file.
-
-We also provide you with a sample assertion for each usecase given in the
-readme file. You are tasked with implementing and thinking of more assertions
-for each usecase.
-
-## Using Docker
-
-For all those who are unfamiliar with docker, this is a short tutorial to run the
-dockerfiles and create containers. For ease of developent, all the containers will
-install jupyter which allows you to use jupyter notebooks to test and run code.
-
-To build a container, navigate to your chosen project directory.
-E.g. `cd text`
-
-Then you can run the following command to build the docker image:
-`docker build -t your_image_name . `
-
-You can replace `your_image_name` with whatever name you want.
-
-Once the build is complemented, you now have to run the container. We give you
-two ways to run the container here:
-1. Jupyter Labs
-
-    Run the following command `docker run -p 8888:8888 your_image_name`
-    This will start up a container from your build image and it will epose the 8888
-    port on your system. Following this you should see the following output:
-    ```
-    [I 2025-08-19 20:16:02.971 ServerApp] jupyter_lsp | extension was successfully linked.
-    [I 2025-08-19 20:16:02.974 ServerApp] jupyter_server_terminals | extension was successfully linked.
-    [I 2025-08-19 20:16:02.977 ServerApp] jupyterlab | extension was successfully linked.
-    [I 2025-08-19 20:16:02.980 ServerApp] notebook | extension was successfully linked.
-    [I 2025-08-19 20:16:02.983 ServerApp] Writing Jupyter server cookie secret to /root/.local/share/jupyter/runtime/jupyter_cookie_secret
-    [I 2025-08-19 20:16:03.440 ServerApp] notebook_shim | extension was successfully linked.
-    [I 2025-08-19 20:16:03.473 ServerApp] notebook_shim | extension was successfully loaded.
-    [I 2025-08-19 20:16:03.475 ServerApp] jupyter_lsp | extension was successfully loaded.
-    [I 2025-08-19 20:16:03.476 ServerApp] jupyter_server_terminals | extension was successfully loaded.
-    [I 2025-08-19 20:16:03.485 LabApp] JupyterLab extension loaded from /usr/local/lib/python3.10/dist-packages/jupyterlab
-    [I 2025-08-19 20:16:03.485 LabApp] JupyterLab application directory is /usr/local/share/jupyter/lab
-    [I 2025-08-19 20:16:03.486 LabApp] Extension Manager is 'pypi'.
-    [I 2025-08-19 20:16:03.555 ServerApp] jupyterlab | extension was successfully loaded.
-    [I 2025-08-19 20:16:03.559 ServerApp] notebook | extension was successfully loaded.
-    [I 2025-08-19 20:16:03.560 ServerApp] Serving notebooks from local directory: /
-    [I 2025-08-19 20:16:03.560 ServerApp] Jupyter Server 2.16.0 is running at:
-    [I 2025-08-19 20:16:03.560 ServerApp] http://48bff4dd8c67:8888/tree?token=`TOKENNUMBER`
-    [I 2025-08-19 20:16:03.560 ServerApp]     http://127.0.0.1:8888/tree?token=`TOKENNUMBER`
-    [I 2025-08-19 20:16:03.560 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-    [C 2025-08-19 20:16:03.564 ServerApp] 
-        
-        To access the server, open this file in a browser:
-            file:///root/.local/share/jupyter/runtime/jpserver-1-open.html
-        Or copy and paste one of these URLs:
-            http://48bff4dd8c67:8888/tree?token=`TOKENNUMBER`
-            http://127.0.0.1:8888/tree?token=`TOKENNUMBER`
-    [I 2025-08-19 20:16:03.580 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
-    ```
-    Following this you can either follow the prompt on your given code IDE or copy paste
-    the localhost url, i.e. the one containing `127.0.0.2:8888` into your chosen browser.
-    If you follow the prompt given by your IDE, and you are prompted for a token, copy paste
-    the `TOKENNUMBER` into the box. The `TOKENNUMBER` can be found in the places that I have
-    highlighted in the output above.
-
-2. Bash
-
-    You can also run the container without needing to go to jupyter labs. Here just run the
-    command: `docker run -it your_image_name bash`.
-    This will redirect you to the bash shell of the container where you can run any python files
-    that you need to test. Note that you will not be able to open jupyter notebooks from the 
-    bash shell unless you use a IDE specific tool to attach your IDE to your running container.
-    We shall not go into detail about that, but the option is available to those who know how or
-    are willing to learn it.
+# Overall mechanics and infrastructure
 
 
-As a reminder, it would be good to read up on docker containers and how to maintain them
-during your process of development here: https://www.devopsroles.com/managing-docker-containers/
+**Teamwork:** You will work on this project in your assigned teams. As a team, you will use a shared GitHub repository and a virtual machine to coordinate your work. Please establish a way of communication and collaboration that works for your team -- for example, a Teams channel. Please agree on tasks and responsibilities. We expect that team members will have different backgrounds and different amounts of experience with machine learning and engineering -- this is intentional. Use the first milestone to identify strength and weaknesses, fill missing gaps in background knowledge, and teach each other about tools and practices that are effective for this task. Finally, be a good team citizen.
+
+**Milestones:** For each milestone and the final presentation, there are separate deliverables, described below. The milestones are checkpoints to ensure that certain functionality has been delivered. 
+
+Milestones are graded on a pass/fail scheme for the criteria listed with each milestone. A fail turns into a pass if it is achieved by the end of the next milestone. All milestones must be delivered by the final due date. 
+Note, Milestones build on each other. We recommend to look at all milestones before starting the project, as you may make different design decision and avoid extensive rework.
+
+**Pipelines:** The schematic for pipelines is here. Each pipeline has input datasets and variety of models for each stage. The SLA for each pipeline is provided at the end of the schematic. 
+
+**Infrastructure:**  We provide *Dockerfiles* [link] for each pipeline use case. The Dockerfile  specifies datasets and models to download. You should build the *Dockerfile* into a container and peruse the data and model files. 
+> Shankar add more details once the Dockerfiles are set. 
+
+>You may request more computing resources from the course staff if the virtual machine’s resources are insufficient -- we may or may not be able to accommodate such requests, it may take a few days, and will require a system reboot.
+
+**Data** You do not need to use all provided data. Identify what data is relevant. 
+> Shankar add more details once the data are identified. 
+
+
+**Languages, tools, and frameworks:** Your team is free to chose any technology stack for any part of this project. You have root access to your virtual machine and are free to install any software you deem suitable. You also may use external data and services (e.g. cloud services) as long as you can make them also accessible to the course staff. For example, you can use the free cloud credits that companies like Microsoft, Google, and AWS provide to students for this project. Whenever you set up tools or services, pay some attention to configuring them with reasonable security measures; past student solutions have been actively exploited in past projects and this can lead to data loss or loss of internet access for your virtual machine.
+
+**Documentation** For all milestones, we ask you to discuss some aspects of your design decision and implementation. It may be a good idea to write general documentation that is useful for the team in a place that is shared and accessible to the team (e.g., README.md or wiki pages on GitHub). Conversely it may be a good idea to include text or figures you write for reports as part of the project documentation. Feel free to link to more detailed documentation from your report or simply copy material from existing documentation into the report.
+
+In general, we do not much care about the format or location of where we can find parts of your answers, such as code and screenshots, as long as we can find it. Please make an effort to be clear where to find content if it is not copied directly into the report, preferably with direct links to individual files or even lines
+
+
+# Milestone 1
+
+### Learning Goals: 
+	The primary task is to set up multiple pipeline configurations, where in each pipeline configuration provides some result to compare pipelines. Note we do not care about the accuracy of fidelity of the result at this point. At this point we care 
+whether a pipe is functional or not. For example, in ID card processing, one pipeline configuration is [red channel, Tesseract, Classification-level-2]. Define the accuracy of this pipeline and compute it.  
+    
+### Tasks: 
+
+T1. Meet with your team members. Decide how you divide the work (minimum: who is going to do what and by when). Share team skills and responsibilities.
+
+T2. Inform which pipeline use case the team is using. 
+
+T3. Setup pipeline configurations in a Jupyter notebook. This is a complex task, which will require you to connect the input datasets to the first  step of the pipeline, the first step to the second step, and so on, and finally output a basic accuracy number for the pipeline. We have provided one accuracy metric, which can be used as an assertion. It is upto you to think of other improved accuracy metrics and provide justification for their use. Once you have one single pipeline working, experiment by changing models at each step and set up as many pipeline configurations as possible. 
+
+Run each pipeline and obtain pipeline latency and compare with the provided SLA. You should maintain a fixed batch size of data across pipelines. 
+
+T4. Practice teamwork and reflect on the process.
+
+### Deliverables.
+
+1.  Submit your Notebook which consists of code for pipeline configurations to GitHub. Provide a Dockerfile of your container including the notebook on your Team GitHub and share with us for grading. 
+2.  Write and submit a short report that describes the pipeline objective and architecture. Architecture includes description of datasets, models, and assertions used, and the resulting pipeline configurations. 
+3.  Mention how many choices of datasets and models were used and the number of resulting pipeline configurations that are possible in your pipeline.
+4.  For each pipeline configuration, report the accuracy (in terms of number of assertions), latency, and whether SLA was met, as a table.
+5.  Ensure that your notebook is well-documented starting with the name of the pipeline used, and report is detailed and understandable. 
+6.  Briefly describe in your report how your team organizes itself. What communication channels do you use? How have you divides the work?  Did you encountered any teamwork problems and what steps are you planning to take in future milestones to avoid them?
+
+### Grading.
+
+This milestone is worth 10 points. 3 points for producing a notebook, 3 points for sharing a Dockerfile that is downloadable,  runnable into a container, and regenerating the results reported in the document. 4 points for the report that is clear, complete, and precise.
+
+# Milestone 2
+
+
+### Learning Goals: 
+
+The primary task in this milestone is to test specific changes in pipeline configurations and determine and analyze how those changes will affect accuracy and performance measures. We will test model versions and measure resource consumption and compare with accuracy. 
+
+
+### Tasks:
+
+T1. Break your observed latency for a pipeline configuration into per step latency. Observe which model inference step is most time consuming. 
+
+T2. For the given step, and the given model try out different model version on different number of CPU cores. Given your step SLA, note which version and core combination results in best achieving your step SLA. Try at least three different model versions and three different CPU cores. Keep the batch size fixed. 
+
+T3. For the same step, and a given model version and CPU cores, experiment if batching multiple requests changes the utilization of assigned resources. Try at least three different batch sizes. 
+
+T4. Conduct the same set of steps for yet another step of the pipeline. 
+
+### Deliverables: 
+
+1. Submit notebook code with the specific variants. The grader should be able to generate data in your tables and plots.
+2. Create a plot comparing model version, accuracy and latency, and another plot comparing model version, accuracy and throughput. 
+3. Draw a table which reports Variant, Batch Size, Latency,  Cost,  Accuracy across the different steps of your pipeline.
+4. Report your analysis: which model version will you choose, at what batch size, and at how many resources. Note, do account for overall SLA and accuracy measures when making this analysis.
+5. Project presentation. You should be able to present your work till Milestone 2 as part of class presentation. 
+   
+### Grading:
+
+This milestone is worth 10 points. 3 points for producing the notebook, 3 points for plot and table generation. 4 points for the report and presentation that describes analysis and is clear, complete, and precise.
+
+
+
+# Milestone 3
+
+### Learning Goal: 
+
+In this milestone we will set a realistic pipeline. The goal will be to use available open-source libraries and ML systems for designing an ML system pipeline. 
+
+### Tasks
+
+T1. Set up a model loader from which different models of each step and their individual variants,  can be stored and loaded when needed. You may use MinIO object storage. Models must be stored and loaded in container form. 
+
+T2. Set up each model container on a cloud node by itself. Deploy containers using Kubernetes. 
+
+T3. Equip the pipeline with a monitoring system such as Prometheus. 
+
+### Deliverables:
+
+1. The modified Dockerfile now consisting of operational parts of the pipeline.
+2. A report describing in detail how the pipeline is operationalized; if you use any additional system beyond the current one specified.
+
+
