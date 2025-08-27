@@ -15,7 +15,7 @@ to the model being unable to answer the question.
 Thus as a preprocessing step, we will generate a summary of the text before passing it to the 
 question answering step.
 
-## Summarization Step
+## Step 1: Summarization
 
 To do summarization, implement the following set up:
 
@@ -42,7 +42,7 @@ and return an appropriate number of chunks to further pass to the question answe
 The code to load the models into the cache of the container is in the notebook: ```load_models.ipynb```,
 the notebook also has some sample code on how the embeddings work.
 
-## Question Answering Step
+## Step 2: Question Answering Step
 
 To do question answering, we have provided you with a plethora of models to start out with mainly:
 
