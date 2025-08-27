@@ -70,6 +70,8 @@ video/
 You can choose to reduce the size of the dataset by copying only a subset of the images
 by changing the following line in the dockerfile `COPY MOT17/ /MOT17/`.
 
+> Note that the Dockerfile copies a smaller sample of the dataset on line 26. This is only for testing purposes and can be removed if you want to use a different portion of the dataset.
+
 ## Sample
 In the container, there is a sample notebook that has some sample code on loading the dataset
 and loading/intializing some some sample models that we have provided here.
