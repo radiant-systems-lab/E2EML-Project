@@ -38,7 +38,7 @@ In general, we do not much care about the format or location of where we can fin
 # Milestone 1
 
 ### Learning Goals: 
-	The primary task is to set up multiple pipeline configurations, where in each pipeline configuration provides some result to compare pipelines. Note we do not care about the accuracy of fidelity of the result at this point. At this point we care 
+The primary task is to set up multiple pipeline configurations, where in each pipeline configuration provides some result to compare pipelines. Note we do not care about the accuracy of fidelity of the result at this point. At this point we care 
 whether a pipe is functional or not. For example, in ID card processing, one pipeline configuration is [red channel, Tesseract, Classification-level-2]. Define the accuracy of this pipeline and compute it.  
     
 ### Tasks: 

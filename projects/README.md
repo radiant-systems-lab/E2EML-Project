@@ -6,13 +6,13 @@ Navigate to the directory of the chosen project.
 
 For ease of development, all the projects have docker files
 that you can use to build and run a fully functioning container.
-Each directory has a ReadMe which explains in further detail how each
+Each directory has a readme which explains in further detail how each
 project should be tackled.
 
 For a kick start, we have provided
 you with some sample models for each project. The dockerfiles already
 have the necessary dependencies to run each of the sample models. It
-is hihgly encouraged to add more models to further develop the pipeline,
+is highly encouraged to add more models to further develop the pipeline,
 but one should keep in mind to take care to add any necessary dependenices
 to the dockerfile.
 
