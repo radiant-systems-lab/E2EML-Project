@@ -20,8 +20,7 @@ Note, Milestones build on each other. We recommend to look at all milestones bef
 
 **Pipelines:** The schematic for pipelines is here. Each pipeline has input datasets and variety of models for each stage. The SLA for each pipeline is provided at the end of the schematic. 
 
-**Infrastructure:**  We provide *Dockerfiles* [link] for each pipeline use case. The Dockerfile  specifies datasets and models to download. You should build the *Dockerfile* into a container and peruse the data and model files. 
-> Shankar add more details once the Dockerfiles are set. 
+**Infrastructure:**  We provide *Dockerfiles* for each pipeline use case. The Dockerfile  specifies datasets and models to download. You should build the *Dockerfile* into a container and peruse the data and model files. Further details on how to use the Dockerfile are present in the projects directory.
 
 >You may request more computing resources from the course staff if the virtual machine’s resources are insufficient -- we may or may not be able to accommodate such requests, it may take a few days, and will require a system reboot.
 
