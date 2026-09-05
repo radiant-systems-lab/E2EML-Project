@@ -43,78 +43,46 @@ whether a pipe is functional or not. For example, in ID card processing, one pip
     
 ### Tasks: 
 
-T1. Meet with your team members. Decide how you divide the work (minimum: who is going to do what and by when). Share team skills and responsibilities.
+T1. Meet with your team members. For this milestone it may be helpful to work on task individually for a
+while, and then get together to create one working notebook that is documented.
+Alternatively, you may decide to code up each conguration individually and then merge your
+congurations into a single pipeline. In either case, decide how you divide the work (minimum: who is
+going to do what and by when). Share team skills and responsibilities.
 
-T2. Inform which pipeline use case the team is using. 
+T2. Setup pipeline congurations in a Jupyter notebook. This is a complex task, which will require you
+to connect the input datasets to the rst step of the pipeline, the rst step to the second step, and so
+on, and nally output a basic accuracy number for the pipeline. We have provided one accuracy metric,
+which can be used as an assertion. It is upto you to think of other improved accuracy metrics and
+provide justication for their use. Once you have one single pipeline working, experiment by changing
+models at each step and set up as many pipeline congurations as possible.
+Run each pipeline conguration and obtain pipeline latency and accuracy. Report as a table for each
+conguration
 
-T3. Setup pipeline configurations in a Jupyter notebook. This is a complex task, which will require you to connect the input datasets to the first  step of the pipeline, the first step to the second step, and so on, and finally output a basic accuracy number for the pipeline. We have provided one accuracy metric, which can be used as an assertion. It is upto you to think of other improved accuracy metrics and provide justification for their use. Once you have one single pipeline working, experiment by changing models at each step and set up as many pipeline configurations as possible. 
+T3. Write a report. In this report describe:
 
-Run each pipeline and obtain pipeline latency and compare with the provided SLA. You should maintain a fixed batch size of data across pipelines. 
+- Write and submit a short report that describes the pipeline, its objective and architecture.
+Architecture includes description of datasets, models, and assertions used, and the resulting
+pipeline congurations.
 
-T4. Practice teamwork and reflect on the process.
+- Mention how many choices of datasets and models were used and the number of resulting
+pipeline configurations that are possible in your pipeline.
+
+- For each pipeline configuration, report the accuracy (in terms of number of assertions), latency,
+and whether SLA was met, as a table. (We will release the SLAs for each pipeline soon.)
+
+- Ensure that your notebook is well-documented starting with the name of the pipeline used, and
+report is detailed and understandable.
+
+- Briefly describe in your report how your team organizes itself. What communication channels do
+you use? How have you divided the work? Did you encounter any teamwork problems and what
+steps are you planning to take in future milestones to avoid them?
+
 
 ### Deliverables.
 
-1.  Submit your Notebook which consists of code for pipeline configurations to GitHub. Provide a Dockerfile of your container including the notebook on your Team GitHub and share with us for grading. 
-2.  Write and submit a short report that describes the pipeline objective and architecture. Architecture includes description of datasets, models, and assertions used, and the resulting pipeline configurations. 
-3.  Mention how many choices of datasets and models were used and the number of resulting pipeline configurations that are possible in your pipeline.
-4.  For each pipeline configuration, report the accuracy (in terms of number of assertions), latency, and whether SLA was met, as a table.
-5.  Ensure that your notebook is well-documented starting with the name of the pipeline used, and report is detailed and understandable. 
-6.  Briefly describe in your report how your team organizes itself. What communication channels do you use? How have you divides the work?  Did you encountered any teamwork problems and what steps are you planning to take in future milestones to avoid them?
-
+1.  Submit your Notebook which consists of code for pipeline configurations to GitHub. Provide a Dockerfile of your container including the notebook on your Team GitHub and share with us for grading. Uncle the report on Github as well.
+   
 ### Grading.
 
 This milestone is worth 10 points. 3 points for producing a notebook, 3 points for sharing a Dockerfile that is downloadable,  runnable into a container, and regenerating the results reported in the document. 4 points for the report that is clear, complete, and precise.
-
-# Milestone 2
-
-
-### Learning Goals: 
-
-The primary task in this milestone is to test specific changes in pipeline configurations and determine and analyze how those changes will affect accuracy and performance measures. We will test model versions and measure resource consumption and compare with accuracy. 
-
-
-### Tasks:
-
-T1. Break your observed latency for a pipeline configuration into per step latency. Observe which model inference step is most time consuming. 
-
-T2. For the given step, and the given model try out different model version on different number of CPU cores. Given your step SLA, note which version and core combination results in best achieving your step SLA. Try at least three different model versions and three different CPU cores. Keep the batch size fixed. 
-
-T3. For the same step, and a given model version and CPU cores, experiment if batching multiple requests changes the utilization of assigned resources. Try at least three different batch sizes. 
-
-T4. Conduct the same set of steps for yet another step of the pipeline. 
-
-### Deliverables: 
-
-1. Submit notebook code with the specific variants. The grader should be able to generate data in your tables and plots.
-2. Create a plot comparing model version, accuracy and latency, and another plot comparing model version, accuracy and throughput. 
-3. Draw a table which reports Variant, Batch Size, Latency,  Cost,  Accuracy across the different steps of your pipeline.
-4. Report your analysis: which model version will you choose, at what batch size, and at how many resources. Note, do account for overall SLA and accuracy measures when making this analysis.
-5. Project presentation. You should be able to present your work till Milestone 2 as part of class presentation. 
-   
-### Grading:
-
-This milestone is worth 10 points. 3 points for producing the notebook, 3 points for plot and table generation. 4 points for the report and presentation that describes analysis and is clear, complete, and precise.
-
-
-
-# Milestone 3
-
-### Learning Goal: 
-
-In this milestone we will set a realistic pipeline. The goal will be to use available open-source libraries and ML systems for designing an ML system pipeline. 
-
-### Tasks
-
-T1. Set up a model loader from which different models of each step and their individual variants,  can be stored and loaded when needed. You may use MinIO object storage. Models must be stored and loaded in container form. 
-
-T2. Set up each model container on a cloud node by itself. Deploy containers using Kubernetes. 
-
-T3. Equip the pipeline with a monitoring system such as Prometheus. 
-
-### Deliverables:
-
-1. The modified Dockerfile now consisting of operational parts of the pipeline.
-2. A report describing in detail how the pipeline is operationalized; if you use any additional system beyond the current one specified.
-
 
